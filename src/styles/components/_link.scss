@@ -1,0 +1,9 @@
+.link {
+    color: var(--color-secondary);
+    text-decoration: underline;
+    transition: color 0.3s ease-out;
+
+    @include hover {
+        color: var(--color-tertiary);
+    }
+}

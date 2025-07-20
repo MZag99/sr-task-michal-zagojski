@@ -6,3 +6,17 @@
 @import "./mixins";
 @import "./helpers";
 @import "./base";
+
+// Components
+@import "./components/button";
+@import "./components/button-play";
+@import "./components/link";
+@import "./components/paragraph";
+@import "./components/small";
+@import "./components/heading";
+
+// Modules
+@import "./modules/header";
+@import "./modules/footer";
+@import "./modules/gallery";
+@import "./modules/links";

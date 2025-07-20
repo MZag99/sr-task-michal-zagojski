@@ -155,6 +155,24 @@
 
 
 /**
+	 * Strip Unit
+ *
+ * Strips the unit from a number, returning a unitless number.
+ *
+ * @param {number} $number - The number to strip the unit from.
+ * @return {number} - The unitless number.
+ */
+@function strip-unit($number) {
+	@if type-of($number) == "number" and not unitless($number) {
+		@return math.div($number, $number * 0 + 1);
+	}
+
+	@return $number;
+}
+
+
+
+/**
  * Font Size
  *
  * @param {number} $size - Font size in px units

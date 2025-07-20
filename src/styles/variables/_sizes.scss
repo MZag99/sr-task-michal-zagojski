@@ -9,5 +9,8 @@ $size-min: 320px;
 $browser-context: 16px;
 $base-font-size: 16px;
 
-$margin: 20px;
-$margin-l: 146px;
+:root {
+    // Radius sizes
+    --radius-8: 8px;
+    --radius-20: 20px;
+}
