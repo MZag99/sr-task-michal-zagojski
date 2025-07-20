@@ -1,2 +1,2 @@
-# sr-task-michal-zagojski
+# Smart Recruiters Gallery Module Task
 Gallery module task for Smart Recruiters.
