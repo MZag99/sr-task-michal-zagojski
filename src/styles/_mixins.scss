@@ -1,0 +1,173 @@
+@use "sass:math";
+@import "./variables/sizes";
+
+/**
+ * Hover Mixin for applying :hover pseudo styles
+ *
+ * Uses the hover mixin with an optional extra selector (like '$:focus-visible')
+ *
+ * @param $extraSelector:string (optional) = an extra selector that can have the same styles as a hover (for mobile/active state)
+ * @param $extraMediaQuery:string (optional) = an extra media query selector that can for example prevent issues on Samsung devices ( https://www.ctrl.blog/entry/css-media-hover-samsung.html )
+ */
+@mixin hover() {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+
+
+/**
+ * Breakpoint
+ *
+ * Generates media queries for different breakpoints.
+ *
+ * @param {string} $point - The breakpoint key.
+ */
+@mixin breakpoint($point) {
+	@if $point == "phone" {
+		@media (max-width: #{ $size-tablet - 1px }) {
+			@content;
+		}
+	}
+
+	@else if $point == "phone5" {
+		@media (max-height: $size-phone5) {
+			@content;
+		}
+	}
+
+	@else if $point == "phone-small" {
+		@media (max-width: $size-min) {
+			@content;
+		}
+	}
+
+	@else if $point == "not-phone" {
+		@media (min-width: $size-tablet) {
+			@content;
+		}
+	}
+
+	@else if $point == "tablet" {
+		@media (min-width: $size-tablet) and (max-width: #{ $size-desktop - 1px }) {
+			@content;
+		}
+	}
+
+	@else if $point == "desktop" {
+		@media (width >= 1024px) {
+			@content;
+		}
+	}
+
+	@else if $point == "hd" {
+		@media (min-width: $size-hd) {
+			@content;
+		}
+	}
+
+	@else if $point == "not-desktop" {
+		@media (max-width: #{ $size-desktop - 1px }) {
+			@content;
+		}
+	}
+
+	@else if $point == "desktop-large" {
+		@media (min-width: $size-large-desktop) {
+			@content;
+		}
+	}
+
+	@else if $point == "not-hd" {
+		@media (max-width: #{ $size-hd - 1px }) {
+			@content;
+		}
+	}
+
+	@else if $point == "laptop" {
+		@media (min-width: $size-desktop) and (max-height: $size-laptop) {
+			@content;
+		}
+	}
+
+	@else if $point == "landscape" {
+		@media (orientation: landscape) {
+			@content;
+		}
+	}
+
+	@else if $point == "touch" {
+		@media (pointer: coarse) {
+			@content;
+		}
+	}
+
+	@else if $point == "not-touch" {
+		@media not all and (pointer: coarse) {
+			@content;
+		}
+	}
+
+	@else if $point == "retina" {
+		@media only screen and (min-device-pixel-ratio: 2),
+			only screen and (resolution >= 192dpi),
+			only screen and (min-width: $size-desktop) {
+			@content;
+		}
+	}
+
+	@else if $point == "tablet-landscape" {
+		@media only screen and (width >= 768px) and (width <= 1024px) and (orientation: landscape) {
+			@content;
+		}
+	}
+
+	@else if $point == "ipad-pro" {
+		@media only screen and (width >= 1024px) and (height <= 1366px) and (orientation: portrait) and (min-device-pixel-ratio: 1.5) {
+			@content;
+		}
+	}
+
+	@else {
+		@error "Invalid breakpoint";
+	}
+}
+
+
+/**
+ * Flexbox Layout
+ *
+ * @param {string} $direction (row) - Flex direction (row or column)
+ * @param {string} $justify (flex-start) - Justify content property
+ * @param {string} $align (flex-start) - Align items property
+ * @param {string} $flex (flex) - Flex display type
+ */
+
+@mixin flex($direction: row, $justify: flex-start, $align: flex-start, $flex: flex) {
+	display: $flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+
+/**
+ * Font Size
+ *
+ * @param {number} $size - Font size in px units
+ * @param {number} $line ($line-height) - Line height, adjusted dynamically
+ */
+@mixin font-size($size, $line: 1.15) {
+	font-size: strip-unit($size) + px;
+
+	@if  strip-unit($line) < 4 {
+		line-height: strip-unit($line);
+	}
+
+	@else {
+		line-height: math.div(strip-unit($line), strip-unit($size));
+	}
+}

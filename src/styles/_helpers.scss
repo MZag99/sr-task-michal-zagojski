@@ -1,0 +1,30 @@
+%scrollbar-hidden,
+.scrollbar-hidden {
+	scrollbar-width: none;
+
+	&::-moz-scrollbar {
+		display: none;
+	}
+
+	&::-webkit-scrollbar {
+		width: 0;
+		display: none;
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: transparent;
+	}
+}
+
+
+.sr-only {
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: none;
+}
