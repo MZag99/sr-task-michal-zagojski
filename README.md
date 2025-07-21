@@ -5,7 +5,7 @@ Gallery module task for Smart Recruiters.
 
 1. **Clone the repository:**
     ```bash
-    git clone <repository-url>
+    git clone git@github.com:MZag99/sr-task-michal-zagojski.git
     cd sr-task-michal-zagojski
     ```
 
