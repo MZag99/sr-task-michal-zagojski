@@ -10,23 +10,96 @@
 
 <body>
     <main>
-        <header class="module module--header">
-            
+        <header class="m-header">
+            <h2 class="c-heading c-heading--2">Gallery Heading</h2>
+            <p class="c-paragraph m-header__paragraph">
+                Gallery paragraph - Lorem <i>ipsum</i> dolor sit amet, <strong>consectetur</strong> adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad <a class="c-link"
+                    href="#">minim</a> veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
         </header>
 
-        <section class="module module--links"></section>
-        
-        <section class="module module--gallery">
-            <div class="gallery__container">
-                <div class="gallery__item">
-                </div>
+        <section class="m-links">
+            <h3 class="c-heading c-heading--3">Gallery Links</h3>
+            <div class="m-links__items">
+                <a class="c-button c-button--primary" href="#">
+                    <span>Gallery Link One</span>
+                    <span data-icon="star"></span>
+                </a>
+                <a class="c-button c-button--secondary" href="#">
+                    <span>Gallery Link Two</span>
+                </a>
             </div>
         </section>
 
-        <footer class="module module--footer">
+        <section class="m-gallery">
+
+            <div class="m-gallery__item m-gallery__item--1">
+                <img src="/src/assets/images/image-1.png" alt="Gallery Image 1" />
+            </div>
+
+            <div class="m-gallery__item m-gallery__item--2">
+                <img src="/src/assets/images/image-2.png" alt="Gallery Image 2" />
+            </div>
+
+            <div class="m-gallery__item m-gallery__item--3">
+                <img src="https://img.youtube.com/vi/x6iyz1AQhuU/hqdefault.jpg" alt="Gallery Image 3" />
+                <!-- I used a thumbnail for the provided video here -->
+                <button class="m-gallery__button c-button-rounded c-button-rounded--play"
+                    aria-label="Watch gallery video" data-modal-target="gallery-video">
+                    <span data-icon="play"></span>
+                </button>
+            </div>
+
+            <div class="m-gallery__item m-gallery__item--4">
+                <img src="/src/assets/images/image-4.png" alt="Gallery Image 4" />
+            </div>
+
+            <div class="m-gallery__item m-gallery__item--5">
+                <img src="/src/assets/images/image-3.png" alt="Gallery Image 3" />
+            </div>
+
+        </section>
+
+        <footer class="m-footer">
+            <p class="c-small">
+                <strong>Gallery media copyright</strong> - Lorem ipsum dolor sit amet.
+            </p>
         </footer>
 
     </main>
+
+    <div id="modals-wrapper">
+        <div class="m-modal" data-modal-id="gallery-video">
+            <div class="m-modal__content">
+
+                <div class="m-modal__header">
+                    <h2 class="c-heading c-heading--2">Modal Heading</h2>
+                    <button class="c-button-rounded c-button-rounded--close m-modal__close" aria-label="Close modal"
+                        data-modal-close>
+                        <span data-icon="cross"></span>
+                    </button>
+                </div>
+
+                <p class="c-paragraph m-modal__paragraph">
+                    Lorem <i>ipsum</i> dolor sit amet, <strong>consectetur</strong> adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad <a class="c-link"
+                        href="#">minim</a> veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+
+                <div class="m-modal__video">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/x6iyz1AQhuU"
+                        title="YouTube video player"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="loader"></div>
+
     <script type="module" src="/src/main.ts"></script>
 </body>
 

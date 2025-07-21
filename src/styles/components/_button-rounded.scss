@@ -1,0 +1,53 @@
+.c-button-rounded {
+    position: relative;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    border: none;
+    overflow: hidden;
+
+    span[data-icon] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+
+    &--play {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+        transition: background-color var(--transition-fast-out);
+
+        svg {
+            position: relative;
+            top: 1px;
+            left: 2px;
+        }
+
+        @include hover {
+            background-color: var(--color-tertiary);
+        }
+    }
+
+
+    &--close {
+        background-color: var(--color-danger);
+        color: var(--color-white);
+
+        svg {
+            transition: transform var(--transition-fast-in-out);
+            position: relative;
+            top: 1px;
+        }
+
+        @include hover {
+            svg {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}

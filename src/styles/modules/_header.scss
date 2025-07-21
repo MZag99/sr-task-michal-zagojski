@@ -1,0 +1,12 @@
+.m-header {
+    @include flex(column, center, center);
+
+    @include breakpoint(not-desktop) {
+        align-items: flex-start;
+    }
+
+    &__paragraph {
+        max-width: 800px;
+        margin-top: var(--margin);
+    }
+}

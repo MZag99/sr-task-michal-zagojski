@@ -18,6 +18,26 @@
 }
 
 
+.desktop-only {
+	@include breakpoint(desktop) {
+		display: block !important;
+	}
+	@include breakpoint(not-desktop) {
+		display: none !important;
+	}
+}
+
+
+.desktop-hide {
+	@include breakpoint(desktop) {
+		display: none !important;
+	}
+	@include breakpoint(not-desktop) {
+		display: block !important;
+	}
+}
+
+
 .sr-only {
 	width: 1px;
 	height: 1px;

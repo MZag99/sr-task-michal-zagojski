@@ -1,0 +1,19 @@
+.m-links {
+    @include flex(column, center, center);
+    margin-top: var(--margin);
+
+    @include breakpoint(not-desktop) {
+        align-items: flex-start;
+    }
+
+    &__items {
+        @include flex(row, center, center);
+        gap: 15px;
+        margin-top: var(--margin);
+        
+        @include breakpoint(not-desktop) {
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+    }
+}

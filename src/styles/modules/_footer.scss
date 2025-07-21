@@ -1,0 +1,7 @@
+.m-footer {
+    margin-top: var(--margin);
+    
+    @include breakpoint(desktop) {
+        padding-inline: 30px;
+    }
+}

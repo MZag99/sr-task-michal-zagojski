@@ -1,8 +1,12 @@
-.heading {
+.c-heading {
+    color: var(--color-primary);
+    margin: 0;
+
     &--1 {
         @include font-size(48, 1.1);
         font-weight: 700;
     }
+    
     
     &--2 {
         @include font-size(38, 1.2);

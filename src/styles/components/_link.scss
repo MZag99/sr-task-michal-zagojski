@@ -1,7 +1,9 @@
-.link {
+.c-link {
     color: var(--color-secondary);
     text-decoration: underline;
-    transition: color 0.3s ease-out;
+    font-weight: 500;
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast-out);
 
     @include hover {
         color: var(--color-tertiary);

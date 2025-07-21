@@ -1,5 +1,6 @@
 @use "sass:math";
 @import "./variables/sizes";
+@import "./variables/z-index";
 
 /**
  * Hover Mixin for applying :hover pseudo styles
@@ -188,4 +189,30 @@
 	@else {
 		line-height: math.div(strip-unit($line), strip-unit($size));
 	}
+}
+
+
+/**
+ * Z-Index function
+ *
+ * @param {string} $list (Array) - The list to find the current z-index in
+ * @param {string} $element (String) - The name of the current element, must be in the $list
+ *
+ * @returns {number}
+*/
+
+@function z($list, $element) {
+	$z-index: index($list, $element);
+
+	@if $z-index {
+		@return $z-index;
+	}
+
+	@warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+
+	@return null;
+}
+
+@mixin z-index($element, $list: $elements) {
+	z-index: z($list, $element);
 }

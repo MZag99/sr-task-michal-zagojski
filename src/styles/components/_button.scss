@@ -1,0 +1,100 @@
+.c-button {
+    @include font-size(16, 1.4);
+    position: relative;
+    display: inline-block;
+    border-radius: var(--radius-8);
+    padding: 8px 24px;
+    background-color: var(--color-quaternary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color var(--transition-fast-out), color var(--transition-fast-out);
+    color: var(--color-content);
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: 0;
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: transform var(--transition-fast-in-out);
+        z-index: 0;
+    }
+
+    >span {
+        position: relative;
+        z-index: 1;
+        color: inherit;
+    
+        svg {
+            margin-bottom: -2px;
+
+            path {
+                fill: currentColor;
+            }
+        }
+
+        + span {
+            margin-left: 5px;
+        }
+    }
+
+
+    &--primary {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+
+        @include hover {
+            color: var(--color-primary);
+            background-color: var(--color-quaternary);
+        }
+    }
+
+
+    &--primary-text {
+        color: var(--color-primary);
+
+        &:before {
+            background-color: var(--color-primary);
+        }
+
+        @include hover {
+            color: var(--color-white);
+
+            &:before {
+                transform: scaleY(1);
+                transform-origin: bottom;
+            }
+        }
+    }
+
+
+    &--secondary {
+        background-color: var(--color-secondary);
+        color: var(--color-white);
+
+        @include hover {
+            color: var(--color-secondary);
+            background-color: var(--color-quaternary);
+        }
+    }
+
+
+    &--secondary-text {
+        color: var(--color-secondary);
+
+        &:before {
+            background-color: var(--color-secondary);
+        }
+
+        @include hover {
+            color: var(--color-white);
+
+            &:before {
+                transform: scaleY(1);
+                transform-origin: bottom;
+            }
+        }
+    }
+}
